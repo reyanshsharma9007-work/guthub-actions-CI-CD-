@@ -1,0 +1,18 @@
+name: CICD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  code:
+    uses: ./.github/workflows/code.yml
+
+  build:
+    needs: code
+    uses: ./.github/workflows/build.yml
+
+  deploy:
+    needs: build
+    uses: ./.github/workflows/deploy.yml
