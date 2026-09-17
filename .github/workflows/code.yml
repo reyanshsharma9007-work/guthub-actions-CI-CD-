@@ -1,0 +1,15 @@
+name: Code
+
+on:
+  push:
+
+jobs:
+  code-checkout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone The Code
+        uses: actions/checkout@v7
+
+      - name: Print the message
+        run: echo "Code Cloned"
